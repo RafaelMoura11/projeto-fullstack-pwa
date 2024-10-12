@@ -5,6 +5,18 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker
+      .register('/service-worker.js')
+      .then(registration => {
+        console.log('ServiceWorker registrado com sucesso: ', registration);
+      })
+      .catch(error => {
+        console.log('Falha no registro do ServiceWorker: ', error);
+      });
+  });
+}
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

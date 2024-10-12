@@ -14,9 +14,19 @@ const UserForm = () => {
   });
 
   const fetchUsers = async () => {
-    const response = await api.get('/users');
-    setUsers(response.data);
+    try {
+      const response = await api.get('/users');
+      setUsers(response.data);
+      localStorage.setItem('users', JSON.stringify(response.data)); // Armazena no localStorage
+    } catch (error) {
+      console.error("Erro ao buscar usuários:", error);
+      const cachedUsers = localStorage.getItem('users');
+      if (cachedUsers) {
+        setUsers(JSON.parse(cachedUsers)); // Recupera do localStorage se offline
+      }
+    }
   };
+  
 
   const handleChange = (e) => {
     const { name, value } = e.target;
