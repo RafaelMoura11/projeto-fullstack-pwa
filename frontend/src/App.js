@@ -1,7 +1,9 @@
+import User from "./pages/User";
+
 function App() {
   return (
     <div>
-      Hello world
+      <User />
     </div>
   );
 }
