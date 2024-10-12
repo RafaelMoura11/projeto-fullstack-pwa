@@ -128,9 +128,14 @@ const UserForm = () => {
           <h2 className="text-center my-4">Lista de Usuários</h2>
           <ul className="list-group">
             {users.map((user) => (
-              <li className="list-group-item d-flex justify-content-between align-items-center" key={user.id}>
-                {user.name} - {functions.formatDate(user.birth_date)} - {user.gender}
-                <div>
+              <li
+                className="list-group-item d-flex flex-wrap justify-content-between align-items-center"
+                key={user.id}
+              >
+                <div className="col-sm-6">
+                  <strong>{user.name}</strong> - {functions.formatDate(user.birth_date)} - {user.gender}
+                </div>
+                <div className="col-sm-6 text-end">
                   <button className="btn btn-sm btn-warning me-2" onClick={() => handleEdit(user)}>Editar</button>
                   <button className="btn btn-sm btn-danger" onClick={() => handleDelete(user.id)}>Deletar</button>
                 </div>
