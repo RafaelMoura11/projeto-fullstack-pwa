@@ -1,11 +1,10 @@
-import Navbar from "../components/Navbar";
+import React from 'react';
 import UserForm from "../components/UserForm";
 
 export default function User() {
     return (
-        <>
-            <Navbar />
+        <div className="container">
             <UserForm />
-        </>
-    )
+        </div>
+    );
 }
