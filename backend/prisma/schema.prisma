@@ -16,7 +16,7 @@ enum Gender {
 model User {
   id           Int      @id @default(autoincrement())
   name         String
-  birth_date   DateTime
+  birth_date   DateTime @db.Date
   gender       Gender
   phone        String
   nationality  String
