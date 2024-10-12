@@ -1,8 +1,6 @@
-// controllers/userController.js
 const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 
-// Função para criar um novo usuário
 const createUser = async (req, res) => {
   try {
     const { name, birth_date, gender, phone, nationality } = req.body;
@@ -15,7 +13,6 @@ const createUser = async (req, res) => {
   }
 };
 
-// Função para buscar todos os usuários
 const getAllUsers = async (req, res) => {
   try {
     const users = await prisma.user.findMany();
@@ -25,7 +22,6 @@ const getAllUsers = async (req, res) => {
   }
 };
 
-// Função para atualizar um usuário
 const updateUser = async (req, res) => {
   try {
     const { id } = req.params;
@@ -40,7 +36,6 @@ const updateUser = async (req, res) => {
   }
 };
 
-// Função para deletar um usuário
 const deleteUser = async (req, res) => {
   try {
     const { id } = req.params;
@@ -53,7 +48,6 @@ const deleteUser = async (req, res) => {
   }
 };
 
-// Exporta as funções do CRUD
 module.exports = {
   createUser,
   getAllUsers,

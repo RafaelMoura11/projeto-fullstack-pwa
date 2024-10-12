@@ -1,12 +1,12 @@
-// index.js
 const express = require('express');
-const userRouter = require('./routers/userRouter'); // Importa o userRouter
-
+const userRouter = require('./routers/userRouter');
+const cors = require('cors');
 const app = express();
-app.use(express.json()); // Middleware para ler JSON
+app.use(cors());
+app.use(express.json());
 
-// Usa as rotas do userRouter
-app.use('/', userRouter); // Prefixa todas as rotas com /api
+
+app.use('/', userRouter);
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
